@@ -3,104 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paint Contractor - Bengaluru</title>
+  <title>Nishad Paint Services - Bengaluru</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #1a73e8; color: white; text-align: center; padding: 40px 20px; }
-    section { padding: 40px 20px; }
-    h1, h2, h3 { margin: 10px 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-    .card img { width: 50px; margin-bottom: 10px; }
-    form { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
-    button { background: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-    button:hover { background: #0c56c9; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-    .gallery img { width: 100%; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+    header {
+      background: linear-gradient(to right, #007bff, #0056b3);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .service-card {
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <h1>Professional Painting Services in Bengaluru</h1>
-    <p>Transform your home & office with premium quality finishes</p>
+    <h1>🎨 Nishad Paint Services</h1>
+    <p>Premium Painting Solutions in Bengaluru</p>
   </header>
 
   <!-- Why Choose Us -->
-  <section id="why-choose-us">
-    <h2 style="text-align:center;">Why Choose Us</h2>
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="On Time">
-        <h3>On-Time Completion</h3>
-        <p>We plan and finish work within the agreed timeline, ensuring zero delays.</p>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Why Choose Us</h2>
+    <div class="row text-center">
+      
+      <!-- Premium Quality Paints -->
+      <div class="col-md-3">
+        <div class="card service-card p-3" data-bs-toggle="modal" data-bs-target="#paintsModal">
+          <div class="fs-1">⭐</div>
+          <h5 class="mt-2">Premium Quality Paints</h5>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Team">
-        <h3>Experienced Team</h3>
-        <p>Skilled painters with <b>15+ years of experience</b> in homes, offices, and apartments across Bengaluru.</p>
+      <!-- Affordable Pricing -->
+      <div class="col-md-3">
+        <div class="card service-card p-3" data-bs-toggle="modal" data-bs-target="#pricingModal">
+          <div class="fs-1">💰</div>
+          <h5 class="mt-2">Affordable Pricing</h5>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Pricing">
-        <h3>Affordable Pricing</h3>
-        <p>Our prices start from <b>₹40 per sq.ft.</b>, giving you the best value without cutting quality.</p>
+      <!-- Experienced Team -->
+      <div class="col-md-3">
+        <div class="card service-card p-3" data-bs-toggle="modal" data-bs-target="#teamModal">
+          <div class="fs-1">👷</div>
+          <h5 class="mt-2">Experienced Team</h5>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Paint Quality">
-        <h3>Premium Quality Paints</h3>
-        <p>We use trusted brands like <b>Asian Paints, Berger, and Nerolac</b> for a flawless finish.</p>
+      <!-- On-Time Completion -->
+      <div class="col-md-3">
+        <div class="card service-card p-3" data-bs-toggle="modal" data-bs-target="#timeModal">
+          <div class="fs-1">⏱</div>
+          <h5 class="mt-2">On-Time Completion</h5>
+        </div>
       </div>
-
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1829/1829588.png" alt="Paint Types">
-        <h3>Paint Types</h3>
-        <p>We offer Distemper, Emulsion, Enamel, Texture, Royal Finish, Polish, Stainer, PU, and Epoxy paints.</p>
-      </div>
-
     </div>
-  </section>
+  </div>
 
-  <!-- Our Previous Work -->
-  <section id="gallery">
-    <h2 style="text-align:center;">Our Previous Work</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/400x250.png?text=Project+1" alt="Work 1">
-      <img src="https://via.placeholder.com/400x250.png?text=Project+2" alt="Work 2">
-      <img src="https://via.placeholder.com/400x250.png?text=Project+3" alt="Work 3">
+  <!-- Modals -->
+
+  <!-- Paints Modal -->
+  <div class="modal fade" id="paintsModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Premium Quality Paints</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          We only use *trusted brands* like Asian Paints, Berger, and Nerolac.  
+          ✅ Smooth & flawless finish  
+          ✅ Long-lasting shine  
+          ✅ Eco-friendly & low-odor paints  
+        </div>
+      </div>
     </div>
-    <p style="text-align:center; margin-top:10px;">(You can replace these images with your actual project photos)</p>
-  </section>
+  </div>
 
-  <!-- Free Quotation Form -->
-  <section id="contact">
-    <h2 style="text-align:center;">Free On-Site Quotation</h2>
-    <form action="https://formspree.io/f/xyzdbboe" method="POST">
-      <input type="text" name="name" placeholder="Your Full Name" required>
-      <input type="email" name="email" placeholder="Email (optional)">
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <input type="text" name="address" placeholder="Address (with area / locality)" required>
-      <select name="paint_type">
-        <option value="">Select Paint Type</option>
-        <option value="Distemper">Distemper</option>
-        <option value="Emulsion">Emulsion</option>
-        <option value="Enamel">Enamel</option>
-        <option value="Texture">Texture</option>
-        <option value="Royal Finish">Royal Finish</option>
-        <option value="Polish">Polish</option>
-        <option value="Stainer">Stainer</option>
-        <option value="PU">PU</option>
-        <option value="Epoxy">Epoxy</option>
-      </select>
-      <textarea name="message" rows="4" placeholder="Any specific requirements..."></textarea>
-      <button type="submit">Submit</button>
+  <!-- Pricing Modal -->
+  <div class="modal fade" id="pricingModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Affordable Pricing</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Our prices start from *₹40 per sq.ft.*  
+          ✅ Best value in Bengaluru  
+          ✅ No hidden charges  
+          ✅ Flexible packages for homes & offices  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Modal -->
+  <div class="modal fade" id="teamModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Experienced Team</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Our team has *15+ years of experience* in painting homes, offices, and commercial spaces.  
+          ✅ Skilled professionals  
+          ✅ Attention to detail  
+          ✅ 1000+ happy customers in Bengaluru  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Modal -->
+  <div class="modal fade" id="timeModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">On-Time Completion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          We value your time.  
+          ✅ Strict project deadlines  
+          ✅ Dedicated project manager  
+          ✅ Always deliver before or on time  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form action="https://formspree.io/f/xyzdbboe" method="POST" class="p-4 border rounded bg-white">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input type="text" name="phone" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Service Required</label>
+        <select name="service" class="form-select">
+          <option>Interior Painting</option>
+          <option>Exterior Painting</option>
+          <option>Polish</option>
+          <option>Stainer</option>
+          <option>PU</option>
+          <option>Epoxy</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea name="message" class="form-control" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Submit Request</button>
     </form>
-  </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>📞 7007482965 | ✉ yash727542@gmail.com</p>
+    <p>&copy; 2025 Nishad Paint Services, Bengaluru</p>
+  </footer>
 
 </body>
 </html>
