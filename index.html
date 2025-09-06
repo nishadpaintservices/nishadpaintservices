@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nishad Paint Services — Bengaluru</title>
+  <style>
+    :root{
+      --accent:#e63946;
+      --dark:#1d3557;
+      --muted:#6c7a89;
+      --card:#ffffff;
+      --bg:#f5f7fb;
+      --glass: rgba(255,255,255,0.65);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg),#eef4fb);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* HEADER / HERO */
+    header.hero{
+      background: linear-gradient(135deg, rgba(29,53,87,0.9), rgba(69,123,157,0.85)), url('https://images.unsplash.com/photo-1542337087-ebc3b5f28f47?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color:#fff;
+      padding:80px 20px;
+      text-align:center;
+    }
+    header.hero h1{font-size:2.6rem; margin:0 0 8px; letter-spacing:0.6px;}
+    header.hero p{margin:0; opacity:0.95; font-size:1.05rem}
+
+    .container{max-width:1100px; margin:0 auto; padding:30px 18px}
+
+    /* FEATURES */
+    .features{
+      display:flex; gap:18px; flex-wrap:wrap; justify-content:center;
+      margin-top:-40px; margin-bottom:30px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      width:250px;
+      padding:18px;
+      box-shadow:0 10px 25px rgba(25,40,60,0.08);
+      text-align:center;
+      transition:transform .28s ease, box-shadow .28s ease;
+      text-decoration:none; /* for links */
+      color:inherit; /* prevent link blue */
+      display:block;
+    }
+    .card:hover{ transform:translateY(-8px); box-shadow:0 18px 35px rgba(25,40,60,0.12); }
+    .card img{ width:64px; height:64px; object-fit:contain; margin-bottom:12px; }
+    .card h3{ margin:8px 0; color:var(--dark) }
+    .card p{ font-size:0.95rem; color:var(--muted); margin:0 }
+
+    /* GALLERY */
+    .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:28px 0; }
+    .gallery img{ width:100%; height:160px; object-fit:cover; border-radius:10px; box-shadow:0 6px 18px rgba(15,30,60,0.06); }
+
+    /* QUOTE SECTION */
+    .quote{
+      display:flex; gap:24px; align-items:stretch; flex-wrap:wrap;
+      margin-top:30px; margin-bottom:30px;
+    }
+    .quote-left{
+      flex:1 1 360px;
+      background:linear-gradient(135deg,var(--glass), rgba(255,255,255,0.8));
+      border-radius:12px; padding:22px;
+      backdrop-filter: blur(6px);
+      box-shadow:0 12px 30px rgba(20,40,60,0.06);
+    }
+    .quote-left h2{ margin:0 0 6px; color:var(--dark) }
+    .quote-left p{ color:var(--muted); margin:0 0 12px }
+
+    form.quote-form{
+      flex:1 1 380px;
+      background:var(--card); padding:18px; border-radius:12px;
+      box-shadow:0 10px 30px rgba(10,30,60,0.06);
+    }
+    .row{ display:flex; gap:10px; }
+    .col{ flex:1; }
+    input[type="text"], input[type="tel"], input[type="email"], select, textarea, input[type="date"]{
+      width:100%; padding:11px 12px; margin:8px 0; border-radius:8px; border:1px solid #dfe7ef;
+      font-size:0.98rem; outline:none;
+    }
+    textarea{ resize:vertical; min-height:100px; }
+    button.primary{
+      background:var(--accent); color:#fff; border:none; padding:12px; font-size:1rem; border-radius:8px;
+      width:100%; cursor:pointer; margin-top:8px;
+    }
+    button.primary:hover{ filter:brightness(.95) }
+
+    .note{ font-size:0.9rem; color:var(--muted); margin-top:8px; text-align:center }
+
+    /* CONTACT */
+    .contact{
+      background:var(--card); border-radius:12px; padding:18px; display:flex; gap:18px; align-items:center; justify-content:space-between;
+      box-shadow:0 8px 20px rgba(10,30,60,0.05);
+    }
+    .contact .info{ color:var(--dark) }
+    .contact a{ color:var(--accent); text-decoration:none; font-weight:600 }
+
+    footer{ text-align:center; padding:18px; color:#fff; background:var(--dark); margin-top:20px; border-radius:0 0 0 0 }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .gallery{ grid-template-columns:repeat(2,1fr) }
+    }
+    @media (max-width:680px){
+      .gallery{ grid-template-columns:repeat(1,1fr) }
+      .quote{ flex-direction:column }
+      .features{ gap:12px }
+      .card{ width:100% }
+    }
+
+    /* small animation */
+    .fade-in{ animation: fadeIn .9s ease both; }
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+
+    /* success / error */
+    .msg{ display:none; padding:10px; border-radius:8px; margin-top:8px; font-weight:600 }
+    .msg.success{ background: #e6fffa; color: #027a6b; border:1px solid #b8f1e6 }
+    .msg.error{ background: #fff1f1; color:#8a231f; border:1px solid #f5c2c2 }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Nishad Paint Services</h1>
+      <p>Premium painting — Affordable prices — Professional team (Serving Bengaluru)</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- features -->
+    <section class="features fade-in" aria-label="features">
+      <a href="premium-quality.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/181/181535.png" alt="Quality">
+        <h3>Premium Quality Paints</h3>
+        <p>Top brands and professional surface preparation for long-lasting finish.</p>
+      </a>
+
+      <a href="affordable-pricing.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679720.png" alt="Affordable">
+        <h3>Affordable Pricing</h3>
+        <p>Clear, honest pricing — good value without cutting quality.</p>
+      </a>
+
+      <a href="experienced-team.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2942/2942929.png" alt="Experience">
+        <h3>Experienced Team</h3>
+        <p>Skilled painters used to homes and apartments in Bengaluru.</p>
+      </a>
+
+      <a href="on-time.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/709/709790.png" alt="On-time">
+        <h3>On-Time Completion</h3>
+        <p>We plan and finish work within the agreed timeline.</p>
+      </a>
+    </section>
+
+    <!-- gallery -->
+    <section class="gallery fade-in" aria-label="gallery">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop" alt="paint1">
+      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop" alt="paint2">
+      <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=800&auto=format&fit=crop" alt="paint3">
+    </section>
+
+    <!-- quote + form -->
+    <section class="quote">
+      <div class="quote-left fade-in">
+        <h2>Free On-Site Quotation</h2>
+        <p>Fill the form — we will visit your site in Bengaluru, measure and give a firm price. No hidden charges.</p>
+        <ul style="color:var(--muted); padding-left:18px; margin-top:8px">
+          <li>Quality paints (premium and standard options)</li>
+          <li>Surface preparation & two-coat finish</li>
+          <li>Affordable rates and transparent estimates</li>
+        </ul>
+        <p style="margin-top:12px; color:var(--muted)">You will receive a confirmation email (if you add your email) and we will call you on <strong>7007482965</strong>.</p>
+      </div>
+
+      <form class="quote-form fade-in" id="quoteForm"
+            action="https://formspree.io/f/xyzdbboe" method="POST">
+        <input type="hidden" name="_subject" value="New painting quote request (Nishad Paint Services)">
+        <label><strong>Your Full Name</strong></label>
+        <input type="text" name="name" placeholder="e.g. Ramesh Kumar" required>
+
+        <div class="row">
+          <div class="col">
+            <label><strong>Phone</strong></label>
+            <input type="tel" name="phone" placeholder="7007482965" required>
+          </div>
+          <div class="col">
+            <label><strong>Email (optional)</strong></label>
+            <input type="email" name="email" placeholder="name@example.com">
+          </div>
+        </div>
+
+        <label><strong>Address (with area / locality)</strong></label>
+        <input type="text" name="address" placeholder="e.g. Koramangala, Bengaluru" required>
+
+        <div class="row">
+          <div class="col">
+            <label><strong>House Size</strong></label>
+            <input type="text" name="houseSize" placeholder="e.g. 2BHK or 1200 sq.ft" required>
+          </div>
+          <div class="col">
+            <label><strong>Preferred Date</strong></label>
+            <input type="date" name="date">
+          </div>
+        </div>
+
+        <label><strong>Type of Paint</strong></label>
+        <select name="paintType" required>
+          <option value="">Select paint type</option>
+          <option value="distemper">Distemper</option>
+          <option value="emulsion">Interior Emulsion</option>
+          <option value="oil">Oil Based</option>
+          <option value="premium">Premium Brand (Royale / Equivalent)</option>
+          <option value="waterproof">Waterproof / Exterior</option>
+          <option value="pu">PU (Polyurethane)</option>
+          <option value="sealer">Sealer</option>
+          <option value="polish">Polish</option>
+          <option value="texture">Texture Paint</option>
+          <option value="enamel">Enamel Paint</option>
+          <option value="epoxy">Epoxy Coating</option>
+        </select>
+
+        <label><strong>Notes / Details</strong></label>
+        <textarea name="notes" placeholder="Any special requests or details"></textarea>
+
+        <button class="primary" type="submit">Request Quotation</button>
+
+        <div id="formMsg" class="msg" role="status" aria-live="polite"></div>
+        <p class="note">We operate in Bengaluru. After you submit we will call you on <strong>7007482965</strong>.</p>
+      </form>
+    </section>
+
+    <!-- contact -->
+    <section class="contact fade-in" aria-label="contact">
+      <div class="info">
+        <strong>Nishad Paint Services</strong><br>
+        Bengaluru — Local & Trusted Painters<br>
+        Phone: <a href="tel:+917007482965">7007482965</a> • Email: <a href="mailto:yash727542@gmail.com">yash727542@gmail.com</a>
+      </div>
+      <div>
+        <small style="color:var(--muted)">Want us to call you? Fill the form and we will visit for measurements before giving a price.</small>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Nishad Paint Services — All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('quoteForm');
+    const msg = document.getElementById('formMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.style.display = 'none';
+      msg.textContent = '';
+      msg.className = 'msg';
+
+      const action = form.getAttribute('action') || '';
+      if (action.includes('your_form_id') || action.trim() === '') {
+        msg.style.display = 'block';
+        msg.classList.add('error');
+        msg.textContent = 'Form not connected: Please replace the form action with your Formspree endpoint.';
+        return;
+      }
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          msg.style.display = 'block';
+          msg.classList.add('success');
+          msg.textContent = '✅ Your request has been sent. We will call you soon on 7007482965.';
+          form.reset();
+        } else {
+          let errText = 'Server error. Please try again later.';
+          try { const errJson = await res.json(); if(errJson && errJson.error) errText = errJson.error; } catch(_) {}
+          msg.style.display = 'block';
+          msg.classList.add('error');
+          msg.textContent = '❌ ' + errText;
+        }
+      } catch (err) {
+        msg.style.display = 'block';
+        msg.classList.add('error');
+        msg.textContent = 'Network error. Please check your connection.';
+      }
+    });
+  </script>
+</body>
+</html>
